@@ -11,6 +11,11 @@ class Users extends CI_Controller
         $this->load->view("users/register");
     }
 
+    public function nav()
+    {
+        $this->load->view("partials/navigation");
+    }
+
 
 }
 ?>
