@@ -26,6 +26,11 @@ class Users extends CI_Controller
         $this->load->view("products/show_products");
     }
 
+    public function all_products()
+    {
+        $this->load->view("products/all_products");
+    }
+
 
 }
 ?>
