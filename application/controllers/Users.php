@@ -16,6 +16,11 @@ class Users extends CI_Controller
         $this->load->view("partials/navigation");
     }
 
+    public function products()
+    {
+        $this->load->view("products/home");
+    }
+
 
 }
 ?>

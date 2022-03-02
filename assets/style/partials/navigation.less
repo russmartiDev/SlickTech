@@ -1,4 +1,4 @@
-.container {
+.nav {
     margin-bottom: 8%;
 
     .row.top-nav{
@@ -54,12 +54,11 @@
 
 @media only screen and (max-width: 1200px) {
 
-    .container .row div input[type="search"]{
+    .nav .row div input[type="search"]{
         width: 100%;
     }
-    a{
+    .nav a{
         font-size: .8em;
-        text-align: center;
         width: 100%;
     }
 
@@ -70,14 +69,11 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .slick{
-        text-align: center;
-    }
-}
-
 @media only screen and (max-width: 480px) {
-    .container .row div input[type="search"]{
+    .nav .row div input[type="search"]{
         width: 100%;
+    }
+    .nav .slick {
+        font-size: 1.5em;
     }
 }
