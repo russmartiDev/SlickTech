@@ -20,6 +20,11 @@ class Users extends CI_Controller
     {
         $this->load->view("products/home");
     }
+    
+    public function show_products()
+    {
+        $this->load->view("products/show_products");
+    }
 
 
 }

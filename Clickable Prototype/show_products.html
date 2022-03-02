@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>Product Info</title>
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +17,15 @@
     <!-- font awesome library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- main style -->
-    <link rel="stylesheet/less" type="text/css" href=" <?= base_url("assets/style/products/show_products.less"); ?>">
+    <link rel="stylesheet/less" type="text/css" href="style/show_products.less">
     <!-- fortorama library -->
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-    
+    <!-- less library -->
+    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 </head>
 <body>
-<?php
-    $this->load->view("partials/navigation");
-?>
-<!-- less library -->
-<script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+
 
   
     <div class="row product">
@@ -229,10 +226,6 @@
     </div>
 
     <div class="container text-light">
-<?php
-    // if(!empty($this->session->userdata("user_id")))
-    // {
-?>
         <form action="/Comments/add_comment" method="POST">
             <h2>Leave a review</h2>
             <input type="hidden" name="product_id" value="1">
@@ -240,25 +233,14 @@
             <textarea placeholder="Write a comment" name="content" class="form-control" rows="3"></textarea>
             <input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0  ms-auto" value="Comment">
         </form>
-<?php
-    // }
-?>
         <ul>
-<?php
-        // foreach($review as $review)
-        // {
-?>
+
             <li class="comment">
                 <h3 class="d-inline-block">Russell</h3>
                 <p class="d-inline-block text-secondary ms-4 mb-0 ">(june 5, 2022)</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sunt harum assumenda incidunt rerum necessitatibus voluptas, porro temporibus consectetur quisquam enim officiis, deleniti aut eos adipisci nulla voluptatem ipsum odit.</p>
                 
                 <ul>
-<?php
-                // foreach($review["replies"] as $reply)
-                // {
-?>
-
                     <li class="mt-4">
                         <h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info "></i>Russell</h4>
                         <p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
@@ -273,11 +255,6 @@
 
                 </ul>
                 <a href="#" class="more">Show more replies <i class="fas fa-angle-down"></i></a>
-<?php
-                // }
-                // if(!empty($this->session->userdata("user_id")))
-                // {
-?>
                     <form action="/comments/add_reply" method="post">
                         <input type="hidden" name="comment_id" value="1">
                         <input type="hidden" name="user_id" value="1">
@@ -285,9 +262,6 @@
                         <textarea placeholder="Write a reply" name="content" class="form-control mb-4" rows="3"></textarea>
                         <input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0  ms-auto" value="reply">
                     </form>
-<?php
-                // }
-?>
             </li>     
         </ul>
         <a href="#" class="more">Show more reviews <i class="fas fa-angle-down"></i></a>

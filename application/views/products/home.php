@@ -24,9 +24,11 @@
     
 </head>
 <body>
-    <?php
+<?php
     $this->load->view("partials/navigation");
-    ?>
+?>
+<!-- less library -->
+<script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
     <div class="slider">
         <div class="fotorama" data-width="100%" data-autoplay="2000">
             <img src="<?= base_url("assets/img/slide1.jpg"); ?>">
@@ -123,7 +125,6 @@
         </div>
     </div>
     <a href="#" class="show_all">Show all products</a>
-    <!-- less library -->
-    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+
 </body>
 </html>
