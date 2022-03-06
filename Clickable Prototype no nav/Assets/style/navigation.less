@@ -1,5 +1,5 @@
-nav.container {
-    margin-bottom: 10vh;
+.container {
+    margin-bottom: 8%;
 
     .row.top-nav{
         background-color: rgb(34, 34, 34);
@@ -54,39 +54,30 @@ nav.container {
 
 @media only screen and (max-width: 1200px) {
 
-    nav.container {
-        margin-bottom: 16vh;
-        .row div input[type="search"]{
-            width: 100%;
-            
-            a{
-                font-size: .8em;
-                text-align: center;
-                width: 100%;
-            }
-        
-            .slick{
-                text-align: left;
-                width: 100%;
-                display: block;
-            }
-        }
+    .container .row div input[type="search"]{
+        width: 100%;
+    }
+    a{
+        font-size: .8em;
+        text-align: center;
+        width: 100%;
     }
 
+    .slick{
+        text-align: left;
+        width: 100%;
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-    nav.container{
-        margin-bottom: 23vh;
-        .slick{
-            text-align: center;
-        }
+    .slick{
+        text-align: center;
     }
-   
 }
 
 @media only screen and (max-width: 480px) {
-    nav.container .row div input[type="search"]{
+    .container .row div input[type="search"]{
         width: 100%;
     }
 }
