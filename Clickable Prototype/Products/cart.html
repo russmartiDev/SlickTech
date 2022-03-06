@@ -17,13 +17,14 @@
     <!-- font awesome library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- main style -->
-    <link rel="stylesheet/less" type="text/css" href="style/cart.less">
+    <link rel="stylesheet/less" type="text/css" href="../Assets/style/cart.less">
     <!-- less library -->
     <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 
 </head>
 <body>
     <h1 class="text-light"><i class="fas fa-shopping-cart"></i> Cart</h1>
+    <!---------------------Cart Item Table-------------------------------->
     <div class="table-container">
         <table class="table table-dark table-striped">
             <thead>
@@ -106,58 +107,65 @@
                     <td>sample</td>
                     <td>@sample</td>
                 </tr>
-               
             </tbody>
         </table>
     </div>
+     <!---------------------Total-------------------------------->
     <div class="total mb-5 text-light">
         <p ">TOTAL: $1000</p>
         <input type="button" class="btn btn-success" value="Continue Shopping">
     </div>
-
-    
- 
-    
+     <!---------------------Information-------------------------------->
     <div class="container text-light">
         <div class="row">
+             <!---------------------Shipping information-------------------------------->
             <div class="col-12 col-lg-6">
                 <h2 class="row">Shipping Information</h2>
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label mb-1" for="defaultCheck1">use default</label> 
+                <!---------------------Shipping Input fields------------------------------->
                 <div class="row">
                     <p class="col-4">First name: </p>
                     <input class="col-8" type="text">
                 </div>
-              
+
                 <div class="row">
                     <p class="col-4">Last name: </p>
                     <input class="col-8" type="text">
                 </div>
+                
                 <div class="row">
                     <p class="col-4">Address: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Address 2: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">City: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">State: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Zip code: </p>
                     <input class="col-8" type="text">
                 </div>
             </div>
+
             <div class="col-12 col-lg-6">
+                 <!---------------------Billing Information-------------------------------->
                 <h2 class="row">Billing Information</h2>
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label mb-1" for="defaultCheck1">Same as shipping</label> 
+                <!---------------------Billing Inputfields------------------------------->
                 <div class="row">
                     <p class="col-4">First name: </p>
                     <input class="col-8" type="text">
@@ -167,34 +175,42 @@
                     <p class="col-4">Last name: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Address: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Address 2: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">City: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">State: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Zip code: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Card: </p>
                     <input class="col-8" type="text">
                 </div>
+                
                 <div class="row">
                     <p class="col-4">Security code: </p>
                     <input class="col-8" type="text">
                 </div>
+
                 <div class="row">
                     <p class="col-4">Expiratione: </p>
                     <input class="col-3" type="text">
@@ -202,11 +218,9 @@
                     <input class="col-3" type="text">
                 </div>
             </div>
-
         </div>
-
     </div>
-
+    <!---------------------Pay button------------------------------->
     <div class="pay">
         <input type="button" class="btn btn-primary mt-3" value="Pay $1000">
     </div>

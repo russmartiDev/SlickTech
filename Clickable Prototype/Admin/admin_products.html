@@ -17,24 +17,26 @@
 		<!-- font awesome library-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 		<!-- main style -->
-		<link rel="stylesheet/less" type="text/css" href="style/admin_products.less" />
+		<link rel="stylesheet/less" type="text/css" href="../Assets/style/admin_products.less" />
 		<!-- less library -->
 		<script src="https://cdn.jsdelivr.net/npm/less@4"></script>
 	</head>
 	<body>
 		<div class="mb-3 row">
 			<div class="col-6 col-md-3">
+				<!------Search-------->
 				<div class="input-group">
 					<button class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></button>
 					<input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="basic-addon1" />
 				</div>
 			</div>
 			<div class="col-0 col-md-7 space"></div>
+			<!------Add product-------->
 			<div class="col-6 col-md-2">
                 <button  class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#product">add new product</button>
 			</div>
 		</div>
-
+		<!------Product Table-------->
 		<div class="table-container">
 			<table class="table table-light table-striped align-middle">
 				<thead>
@@ -58,7 +60,6 @@
 						<td>Keyboard</td>
 						<td>123</td>
 						<td>$143</td>
-
 						<td>
 							<button data-bs-toggle="modal" data-bs-target="#product"><a href="#">Edit</a></button>
 							<button data-bs-toggle="modal" data-bs-target="#delete_product"><a href="#">Delete</a></button>
@@ -67,25 +68,12 @@
 				</tbody>
 			</table>
 		</div>
-
+		<!------Page-------->
 		<div class="page">
-			<a href="#"><</a>
-			<a href="#"><<</a>
-			<a href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">6</a>
-			<a href="#">7</a>
-			<a href="#">8</a>
-			<a href="#">9</a>
-			<a href="#">10</a>
-			<a href="#">></a>
-			<a href="#">>></a>
+			<a href="#"><</a><a href="#"><<</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">></a><a href="#">>></a>
 		</div>
 
-		<!-- ------------------------------------------MODAL------------------------------------------------------------- -->
+		<!-- ------------------------------------------Delete modal------------------------------------------------------------- -->
 		<form action="/products/delete_product" method="post">
 			<div class="modal fade" id="delete_product" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
@@ -108,7 +96,7 @@
 			</div>
 		</form>
 
-		<!-- ------------------------------------------MODAL------------------------------------------------------------- -->
+		<!-- ------------------------------------------Update/add modal------------------------------------------------------------- -->
 		<form action="/products/edit_product" method="post">
 			<div class="modal fade" id="product" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -118,6 +106,7 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
+							<!------Upadte/add input field-------->
 							<input type="hidden" name="id" value="1" />
 							<div class="mb-1">
 								<label for="name" class="form-label">Product Name</label>
@@ -139,7 +128,7 @@
 									<label for="price" class="form-label">Price</label>
 									<input type="number" required class="form-control" id="price" name="price" value="10" />
 								</div>
-
+								<!------Category Dropdown-------->
 								<div class="mb-1 col-12 dropdown">
 									<button class="btn btn-success dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Category</button>
 									<ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">
@@ -159,81 +148,34 @@
 									<label for="add_new_categ" class="form-label">Add new category</label>
 									<input type="number" required class="form-control" id="add_new_categ" name="add_new_categ" value="10" />
 								</div>
-
+								<!------Images-------->
 								<div class="mb-4 col-12">
 									<label for="add_new_categ" class="form-label">images</label>
 									<input type="button" value="upload Image" class="btn btn-success" />
 								</div>
 	
-									<div class="row align-items-center">
-										<i class="fas fa-bars col-1"></i>
-										<div class="col-4">
-											<div class="img_container">
-												<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-											</div>
+								<div class="row align-items-center">
+									<i class="fas fa-bars col-1"></i>
+									<div class="col-4">
+										<div class="img_container">
+											<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
 										</div>
-										<p class="col-3">img.png</p>
-										<i class="fas fa-trash col-1"></i>
-										<input class="col-1" type="checkbox" />
-										<p class="col-1 m-0 p-0">main</p>
 									</div>
-                                    <div class="row align-items-center">
-										<i class="fas fa-bars col-1"></i>
-										<div class="col-4">
-											<div class="img_container">
-												<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-											</div>
-										</div>
-										<p class="col-3">img.png</p>
-										<i class="fas fa-trash col-1"></i>
-										<input class="col-1" type="checkbox" />
-										<p class="col-1 m-0 p-0">main</p>
-									</div>
-                                    <div class="row align-items-center">
-										<i class="fas fa-bars col-1"></i>
-										<div class="col-4">
-											<div class="img_container">
-												<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-											</div>
-										</div>
-										<p class="col-3">img.png</p>
-										<i class="fas fa-trash col-1"></i>
-										<input class="col-1" type="checkbox" />
-										<p class="col-1 m-0 p-0">main</p>
-									</div>
-                                    <div class="row align-items-center">
-										<i class="fas fa-bars col-1"></i>
-										<div class="col-4">
-											<div class="img_container">
-												<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-											</div>
-										</div>
-										<p class="col-3">img.png</p>
-										<i class="fas fa-trash col-1"></i>
-										<input class="col-1" type="checkbox" />
-										<p class="col-1 m-0 p-0">main</p>
-									</div>
-                                    <div class="row align-items-center">
-										<i class="fas fa-bars col-1"></i>
-										<div class="col-4">
-											<div class="img_container">
-												<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-											</div>
-										</div>
-										<p class="col-3">img.png</p>
-										<i class="fas fa-trash col-1"></i>
-										<input class="col-1" type="checkbox" />
-										<p class="col-1 m-0 p-0">main</p>
-									</div>
-					
+									<p class="col-3">img.png</p>
+									<i class="fas fa-trash col-1"></i>
+									<input class="col-1" type="checkbox" />
+									<p class="col-1 m-0 p-0">main</p>
+								</div>
+								
 							</div>
 						</div>
-
+						
 						<div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							<input type="button" class="btn btn-success" value="preview" />
 							<input type="submit" class="btn btn-primary" value="update" />
 						</div>
+
 					</div>
 				</div>
 			</div>
