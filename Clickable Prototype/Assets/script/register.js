@@ -3,7 +3,7 @@ $(document).ready(function () {
 		if ($(this).val() == $("input[name=password]").val()) {
 			$(this).prev().css("color", "rgb(124, 255, 141)");
 		} else {
-			$(this).prev().css("color", "rgb(34, 34, 34)");
+			$(this).prev().css("color", "rgb(111, 111, 111)");
 		}
 	});
 	$("input[type=number], input[type=text], input[type=password]").focus(function () {
