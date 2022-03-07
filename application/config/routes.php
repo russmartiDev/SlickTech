@@ -51,9 +51,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'products';
 
-$route['login'] = 'users/index';
-$route['logout'] = 'users/logout';
-$route['register'] = 'users/register';
-
-
 $route['translate_uri_dashes'] = FALSE;

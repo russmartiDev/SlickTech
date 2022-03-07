@@ -1,5 +1,17 @@
-.nav {
-    margin-bottom: 8%;
+
+html body{
+    min-width: 100vw;
+    min-height: 100vh;
+    width: fit-content;
+    background-image: radial-gradient(rgb(0, 10, 19) 30%, rgb(0, 0, 0));
+    background-size: cover;
+    height: 100%;
+    overflow-x: hidden;
+	font-family: sans-serif;
+
+}
+nav.container {
+    margin-bottom: 10vh;
 
     .row.top-nav{
         background-color: rgb(34, 34, 34);
@@ -54,26 +66,39 @@
 
 @media only screen and (max-width: 1200px) {
 
-    .nav .row div input[type="search"]{
-        width: 100%;
-    }
-    .nav a{
-        font-size: .8em;
-        width: 100%;
+    nav.container {
+        margin-bottom: 16vh;
+        .row div input[type="search"]{
+            width: 100%;
+            
+            a{
+                font-size: .8em;
+                text-align: center;
+                width: 100%;
+            }
+        
+            .slick{
+                text-align: left;
+                width: 100%;
+                display: block;
+            }
+        }
     }
 
-    .slick{
-        text-align: left;
-        width: 100%;
-        display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    nav.container{
+        margin-bottom: 23vh;
+        .slick{
+            text-align: center;
+        }
     }
+   
 }
 
 @media only screen and (max-width: 480px) {
-    .nav .row div input[type="search"]{
+    nav.container .row div input[type="search"]{
         width: 100%;
-    }
-    .nav .slick {
-        font-size: 1.5em;
     }
 }
