@@ -120,7 +120,7 @@
         </ul>
     </div>
     <!------------------------------------------------------------------------------------------------>
-    <a href="/products/all_products" class="show_all">Show all products</a>
+    <a href="/products/all_products/1" class="show_all">Show all products</a>
 
 </body>
 </html>

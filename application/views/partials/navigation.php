@@ -14,7 +14,7 @@
         </div>
 
         <div class="col-auto col-lg-1 text-center">
-            <a href="/products/all_products" class="text-light w-100">PRODUCTS</a>
+            <a href="/products/all_products/1" class="text-light w-100">PRODUCTS</a>
         </div>
 <?php
         if(empty($this->session->userdata("user_id")))
