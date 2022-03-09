@@ -6,6 +6,7 @@ class Products extends CI_Controller {
             parent::__construct();
             $this->load->model("product");
         }
+
         public function index()
         {
             $this->load->view("products/home");
@@ -36,6 +37,40 @@ class Products extends CI_Controller {
 
         public function show($id)
         {
+            $data["product"] = $this->product->get_product_by_id($id);
             
+            $this->load->view("products/show_products", $data);
         }
+
+        public function add_comment()
+        {
+      
+            $validation =  $this->Comment->comment_validation();
+
+            if($validation)
+            {
+                $this->Comment->add_comment($this->input->post(NULL, TRUE));
+            }
+
+            redirect("/products/show_product/" . $this->input->post("product_id", TRUE));
+        }'
+        
+        
+        
+        
+        '
+
+        public function add_reply()
+        {
+          
+            $validation =  $this->Comment->reply_validation();
+
+            if($validation)
+            {
+                $this->Comment->add_reply($this->input->post(NULL, TRUE));
+            }
+
+            redirect("/products/show_product/" . $this->input->post("product_id", TRUE));
+        }
+        
 }

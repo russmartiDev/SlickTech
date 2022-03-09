@@ -1,94 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Product Info</title>
-		<!--Google fonts-->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap" rel="stylesheet" />
-		<!--Jquery library-->
-		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<!-- bootstrap library-->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-		<!-- font awesome library-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-		<!-- main style -->
-		<link rel="stylesheet/less" type="text/css" href="../Assets/style/show_products.less" />
-		<link rel="stylesheet/less" type="text/css" href="../Assets/style/navigation.less">
-		<!-- fortorama library -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-		<!-- less library -->
-		<script src="https://cdn.jsdelivr.net/npm/less@4"></script>
-	</head>
-	<body>
-		 <!---------------------Navigation-------------------->
-		 <nav class="container">
-			<div class="row w-100 align-items-center p-2 top-nav navbar fixed-top">
-				<div class="col col-12 col-md-3 col-lg-2 col-xl-5">
-					<a href="" class="slick">Slick<span class="tech glow">TECH</span></a>
-				</div>
-	
-				<div class="col-12 col-md-9 col-lg-10 col-xl-3">
-					<input type="search" class="form-control w-100" placeholder="Search For Product" aria-label="" aria-describedby="button-addon1">
-				</div>
-	
-				<div class="col-auto col-lg-1 text-center">
-					<a href="home.html" class="text-light w-100">HOME</a>
-				</div>
-	
-				<div class="col-auto col-lg-1 text-center">
-					<a href="all_products.html" class="text-light w-100">PRODUCTS</a>
-				</div>
-	
-				<div class="col-auto col-lg-1 text-center align-items-center dropdown">
-					<a class="dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Russell Martinez
-					</a>
-					<ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="../Users/Profile.html"><i class="fas fa-user-alt"></i>Edit Profile</button></a></li>
-					<li><a class="dropdown-item" href="../Users/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-					</ul>
-				</div>
-				
-				<div class="col-auto col-lg-1 mt-1 text-center">
-					<a href="cart.html" class="text-light w-100 cart"><i class="fas fa-shopping-cart"></i><div class="cart-count ">12</div></a>
-				</div>
-	
-			</div>
-		</nav>
+<?php 
+        $this->load->view("partials/header"); 
+?>
+        <!-- main style -->
+        <link rel="stylesheet/less" type="text/css" href="<?= base_url("Assets/style/show_products.less")?>">
+        <!-- less library -->
+        <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+        <title>All products</title>
+    </head>
+    <body>
+<?php
+        $this->load->view("partials/navigation"); 
+?>
         <!------------------------Product--------------------------->
 		<div class="row product">
 			<div class="col-12 col-md-6">
                 <!------------------------Product Images--------------------------->
 				<div class="slider">
 					<div class="fotorama" data-width="100%" data-autoplay="2000" data-nav="thumbs">
-						<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
-						<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
-						<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
-						<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" />
+<?php
+						foreach(json_decode($product["img_url"], true) as $img)
+						{
+?>
+							<img src="<?= $img; ?>" />
+<?php
+						}
+?>
+						
 					</div>
 				</div>
 			</div>
             <!------------------------Product Info--------------------------->
 			<div class="col-12 col-md-6 text-light">
 				<div class="row gy-2">
-					<h1 class="col-12">mouse</h1>
-					<p class="col-12">Date added: June 5 2000</p>
-					<p class="col-6">Stocks: 3pcs</p>
-					<p class="col-6">Sold: 3 pcs</p>
-					<p class="col-12">Price: $100</p>
-					<p class="col-12">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem illum distinctio beatae iste facilis. Ad unde sint, accusantium id repudiandae fugiat rem, et neque dicta ab nostrum earum velit placeat.</p>
+					<h1 class="col-12"><?= $product["name"] ?></h1>
+					<p class="col-12">Date added: <?= $product["created_at"] ?></p>
+					<p class="col-6">Stocks: <?= $product["inventory"] ?> pcs</p>
+					<p class="col-6">Sold: <?= $product["sold"] ?> pcs</p>
+					<p class="col-12">Price: $<?= $product["price"] ?></p>
+					<p class="col-12"><?= $product["description"] ?></p>
 					<div class="col-7 col-sm-5 col-md-6 col-lg-5 d-block me-0 ms-auto">
                         <!------------------------Select Quantity--------------------------->
 						<select class="form-select" aria-label="Disabled select example">
-							<option value="1">1 ($10.00)</option>
-							<option value="2">2 ($20.00)</option>
-							<option value="3">3 ($30.00)</option>
+<?php
+						for($i = 1; $i <= 3; $i++)
+						{
+?>
+							<option value="<?= $i; ?>"><?= $i; ?> ($<?= $product["price"] * $i ?>)</option>
+<?php
+						}
+?>
 						</select>
 						<input type="button" class="btn btn-success w-100 mt-2 fs-4" value="Add to cart">
 					</div>
@@ -242,7 +202,12 @@
 		</div>
         <!------------------------Reviewt--------------------------->
 		<div class="container text-light">
+
             <!------------------------add review--------------------------->
+<?php
+		if(!empty($this->session->userdata("user_id")))
+		{
+?>		
 			<form action="/Comments/add_comment" method="POST">
 				<h2>Leave a review</h2>
 				<input type="hidden" name="product_id" value="1" />
@@ -250,28 +215,42 @@
 				<textarea placeholder="Write a comment" name="content" class="form-control" rows="3"></textarea>
 				<input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0 ms-auto" value="Review" />
 			</form>
+<?php
+    	}
+?>
             <!------------------------Review List--------------------------->
 			<ul>
+<?php
+			// Review
+			for($j = 0; $j < 3; $j++)
+			{
+?>
 				<li class="comment">
 					<h3 class="d-inline-block">Russell</h3>
 					<p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sunt harum assumenda incidunt rerum necessitatibus voluptas, porro temporibus consectetur quisquam enim officiis, deleniti aut eos adipisci nulla voluptatem ipsum odit.</p>
                     <!------------------------Reply List--------------------------->
 					<ul>
+<?php
+					// Repy
+					for($i = 0; $i < 3; $i++)
+					{
+?>
 						<li class="mt-4">
 							<h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info"></i>Russell</h4>
 							<p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
 							<p class="ms-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid temporibus doloremque nihil odit porro blanditiis ipsa eveniet harum sapiente repellendus dolores perspiciatis ab aliquam dignissimos ullam consectetur, earum iusto in!</p>
 						</li>
-
-						<li class="mt-4">
-							<h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info"></i>Russell</h4>
-							<p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
-							<p class="ms-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid temporibus doloremque nihil odit porro blanditiis ipsa eveniet harum sapiente repellendus dolores perspiciatis ab aliquam dignissimos ullam consectetur, earum iusto in!</p>
-						</li>
+<?php
+    				}
+?>
 					</ul>
 					<a href="#" class="more">Show more replies <i class="fas fa-angle-down"></i></a>
                     <!------------------------add a reply--------------------------->
+<?php
+				if(!empty($this->session->userdata("user_id")))
+				{
+?>		
 					<form action="/comments/add_reply" method="post">
 						<input type="hidden" name="comment_id" value="1" />
 						<input type="hidden" name="user_id" value="1" />
@@ -279,7 +258,13 @@
 						<textarea placeholder="Write a reply" name="content" class="form-control mb-4" rows="3"></textarea>
 						<input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0 ms-auto" value="reply" />
 					</form>
+<?php
+    			}
+?>
 				</li>
+<?php
+    		}
+?>
 			</ul>
 			<a href="#" class="more">Show more reviews <i class="fas fa-angle-down"></i></a>
 		</div>

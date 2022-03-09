@@ -100,9 +100,9 @@
                         <li class="col-6 col-sm-4 col-lg-3 col-xl-2">
                             <div class="item-card ">
                                 <div class="img_container">
-                                    <img src="<?= $product["img_url"]; ?>" alt="mouse">
+                                    <img src="<?= array_values(json_decode($product["img_url"], true))[0]; ?>" alt="mouse">
                                 </div>
-                                <a href="/products/show_products" class="d-block text-decoration-none"><?= $product["name"]; ?></a>
+                                <a href="/products/show/<?= $product["id"]; ?>"" class="d-block text-decoration-none"><?= $product["name"]; ?></a>
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 <p>Price: $<?= $product["price"]; ?></p>
                             </div>
