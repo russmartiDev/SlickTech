@@ -18,7 +18,7 @@
             <div class="row gx-1">
                 <!---------------------Filter Desktop -------------------->
                 <div class="col col-2 filter">
-                    <form action="" method="get" class="mt-5 ">
+                    <form action="/products/search_product/1" method="get" class="mt-5 ">
                         <input class="col-12 mt-3 form-control" type="search" placeholder="Search" name="search">
                     </form>
                     <p class="text-light fw-bold m-0 mb-2 mt-3 ms-4">Categories</p>
@@ -87,7 +87,7 @@
                             <p><a href="1">first</a> | 
                             <a  href="<?= $page > 1 ? $page - 1 : $page; ?>">prev</a> 
                             | <?= $page; ?> | 
-                            <a  href="<?= $page < floor($count) ? $page + 1 : $page; ?>" >next</a></p>
+                            <a  href="<?= $page < $count ? $page + 1 : $page; ?>" >next</a></p>
                             
                         </div>
                     </div>
@@ -117,14 +117,16 @@
         <div class="page mb-4 w-100 text-center ms-5">
         <a href="1"><<</a><a href="<?= $page > 1 ? $page - 1 : $page; ?>"><</a>
 <?php
-        for($i = 1; $i <= $count; $i++)
+        $max_page;
+        for($i = 0; $i <= $count; $i++)
         {
+            $max_page = $i + 1;
 ?>
-            <a class="<?= $i == $page ? "fw-bold text-light" : FALSE; ?>" href="<?= $i ?>"><?= $i ?></a><p class="d-inline-block"> | </p>
-<?php
+            <a class="<?= $i + 1 == $page ? "fw-bold text-light" : FALSE; ?>" href="<?= $i + 1 ?>"><?= $i + 1 ?></a><p class="d-inline-block"> | </p>
+<?php       
         }
 ?>
-            <a href="<?= $page < floor($count) ? $page + 1 : $page; ?>">></a><a href="<?= floor($count); ?>">>></a>
+            <a href="<?= $page < $count ? $page + 1 : $page; ?>">></a><a href="<?= $max_page; ?>">>></a>
         </div>
         
         

@@ -60,72 +60,24 @@
 			<h2>Similar items</h2>
             <!------------------------Item List--------------------------->
 			<div class="row gy-3">
+<?php
+			foreach($similar as $similar)
+			{
+?>
 				<div class="col-6 col-sm-4 col-lg-2">
 					<div class="item-card">
 						<div></div>
 						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
+							<img src="<?= array_values(json_decode($similar["img_url"], true))[0]; ?>" />
 						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
+						<a href="/products/show/<?= $similar["id"]; ?>" class="d-block"><?= $similar["name"]; ?></a>
 						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
+						<p>Price: $<?= $similar["price"]; ?></p>
 					</div>
 				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-                
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
+<?php
+			}
+?>	
 			</div>
 		</div>
         <!------------------------Customer Also Bought--------------------------->
@@ -208,10 +160,10 @@
 		if(!empty($this->session->userdata("user_id")))
 		{
 ?>		
-			<form action="/Comments/add_comment" method="POST">
+			<form action="/products/add_comment" method="POST">
 				<h2>Leave a review</h2>
-				<input type="hidden" name="product_id" value="1" />
-				<input type="hidden" name="user_id" value="1" />
+				<input type="hidden" name="product_id" value="<?= $product["id"] ?>" />
+				<input type="hidden" name="user_id" value="<?= $this->session->userdata("user_id"); ?>" />
 				<textarea placeholder="Write a comment" name="content" class="form-control" rows="3"></textarea>
 				<input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0 ms-auto" value="Review" />
 			</form>
@@ -222,39 +174,38 @@
 			<ul>
 <?php
 			// Review
-			for($j = 0; $j < 3; $j++)
+			foreach($review as $review)
 			{
 ?>
 				<li class="comment">
-					<h3 class="d-inline-block">Russell</h3>
-					<p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sunt harum assumenda incidunt rerum necessitatibus voluptas, porro temporibus consectetur quisquam enim officiis, deleniti aut eos adipisci nulla voluptatem ipsum odit.</p>
+					<h3 class="d-inline-block"><?= $review["comment"]["name"]; ?></h3>
+					<p class="d-inline-block text-secondary ms-4 mb-0">(<?= $review["comment"]["date"]; ?>)</p>
+					<p><?= $review["comment"]["content"]; ?></p>
                     <!------------------------Reply List--------------------------->
 					<ul>
 <?php
 					// Repy
-					for($i = 0; $i < 3; $i++)
+					foreach($review["replies"] as $reply)
 					{
 ?>
 						<li class="mt-4">
-							<h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info"></i>Russell</h4>
-							<p class="d-inline-block text-secondary ms-4 mb-0">(june 5, 2022)</p>
-							<p class="ms-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid temporibus doloremque nihil odit porro blanditiis ipsa eveniet harum sapiente repellendus dolores perspiciatis ab aliquam dignissimos ullam consectetur, earum iusto in!</p>
+							<h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info"></i><?= $reply["name"]; ?></h4>
+							<p class="d-inline-block text-secondary ms-4 mb-0">(<?= $reply["date"]; ?>)</p>
+							<p class="ms-4"><?= $reply["content"]; ?></p>
 						</li>
 <?php
     				}
 ?>
 					</ul>
-					<a href="#" class="more">Show more replies <i class="fas fa-angle-down"></i></a>
                     <!------------------------add a reply--------------------------->
 <?php
 				if(!empty($this->session->userdata("user_id")))
 				{
 ?>		
-					<form action="/comments/add_reply" method="post">
-						<input type="hidden" name="comment_id" value="1" />
-						<input type="hidden" name="user_id" value="1" />
-						<input type="hidden" name="product_id" value="1" />
+					<form action="/products/add_reply" method="post">
+						<input type="hidden" name="comment_id" value="<?= $review["comment"]["id"]; ?>" />
+						<input type="hidden" name="product_id" value="<?= $product["id"]; ?>" />
+						<input type="hidden" name="user_id" value="<?= $this->session->userdata("user_id"); ?>" />
 						<textarea placeholder="Write a reply" name="content" class="form-control mb-4" rows="3"></textarea>
 						<input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0 ms-auto" value="reply" />
 					</form>
@@ -266,7 +217,6 @@
     		}
 ?>
 			</ul>
-			<a href="#" class="more">Show more reviews <i class="fas fa-angle-down"></i></a>
 		</div>
 	</body>
 </html>
