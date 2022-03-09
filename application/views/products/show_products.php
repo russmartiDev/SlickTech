@@ -3,6 +3,7 @@
 ?>
         <!-- main style -->
         <link rel="stylesheet/less" type="text/css" href="<?= base_url("Assets/style/show_products.less")?>">
+		<script src="<?= base_url("Assets/script/cart.js")?>"></script>
         <!-- less library -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
         <title>All products</title>
@@ -40,17 +41,22 @@
 					<p class="col-12"><?= $product["description"] ?></p>
 					<div class="col-7 col-sm-5 col-md-6 col-lg-5 d-block me-0 ms-auto">
                         <!------------------------Select Quantity--------------------------->
-						<select class="form-select" aria-label="Disabled select example">
+						<form action="/carts/add_cart" method="post" id="add_cart">
+							<input type="hidden" name="product_id" value="<?= $product["id"] ?>" />
+							<input type="hidden" name="user_id" value="<?= $this->session->userdata("user_id"); ?>" />
+							<select name="quantity" class="form-select" aria-label="Disabled select example">
 <?php
-						for($i = 1; $i <= 3; $i++)
-						{
+							for($i = 1; $i <= 3; $i++)
+							{
 ?>
-							<option value="<?= $i; ?>"><?= $i; ?> ($<?= $product["price"] * $i ?>)</option>
+								<option value="<?= $i; ?>"><?= $i; ?> ($<?= $product["price"] * $i ?>)</option>
 <?php
-						}
+							}
 ?>
-						</select>
-						<input type="button" class="btn btn-success w-100 mt-2 fs-4" value="Add to cart">
+							</select>
+							<input type="submit" class="btn btn-success w-100 mt-2 fs-4" value="Add to cart">	
+						</form>
+
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,9 @@
         </div>
 
         <div class="col-12 col-md-9 col-lg-10 col-xl-3">
-            <input type="search" class="form-control w-100" placeholder="Search For Product" aria-label="" aria-describedby="button-addon1">
+            <form action="/products/search_product/1" method="get">
+                <input type="search" name="search" class="form-control w-100" placeholder="Search For Product" aria-label="" aria-describedby="button-addon1">
+            </form>
         </div>
 
         <div class="col-auto col-lg-1 text-center">
@@ -43,7 +45,7 @@
         </div>
         
         <div class="col-auto col-lg-1 mt-1 text-center">
-            <a href="cart.html" class="text-light w-100 cart"><i class="fas fa-shopping-cart"></i><div class="cart-count ">12</div></a>
+            <a href="/carts" class="text-light w-100 cart"><i class="fas fa-shopping-cart"></i><div class="cart-count ">12</div></a>
         </div>
 <?php 
         }
