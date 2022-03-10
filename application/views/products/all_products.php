@@ -113,23 +113,33 @@
                     </ul>      
                 </div>
             </div>
+<?php
+        // Pass get variable every page
+        $get = array();
+        foreach($_GET as $get_name => $get_val)
+        {
+            $get[] = $get_name . "=" . $get_val;
+        }
+        if(!empty($get))
+        {
+            $get_url = implode("&",$get);
+        }
+ ?>
         <!---------------------Botto Page Nav-------------------->
         <div class="page mb-4 w-100 text-center ms-5">
-        <a href="1"><<</a><a href="<?= $page > 1 ? $page - 1 : $page; ?>"><</a>
+        <a href="1<?= !empty($get_url) ? "?" . $get_url : "" ?>"><<</a><a href="<?= $page > 1 ? $page - 1 : $page; ?><?= !empty($get_url) ? "?" . $get_url : "" ?>"><</a>
 <?php
+
         $max_page;
         for($i = 0; $i <= $count; $i++)
         {
             $max_page = $i + 1;
 ?>
-            <a class="<?= $i + 1 == $page ? "fw-bold text-light" : FALSE; ?>" href="<?= $i + 1 ?>"><?= $i + 1 ?></a><p class="d-inline-block"> | </p>
+            <a class="<?= $i + 1 == $page ? "fw-bold text-light" : FALSE; ?>" href="<?= $i + 1 ?><?= !empty($get_url) ? "?" . $get_url : "" ?>"><?= $i + 1 ?></a><p class="d-inline-block"> | </p>
 <?php       
         }
 ?>
-            <a href="<?= $page < $count ? $page + 1 : $page; ?>">></a><a href="<?= $max_page; ?>">>></a>
+            <a href="<?= $page < $count ? $page + 1 : $page; ?><?= !empty($get_url) ? "?" . $get_url : "" ?>">></a><a href="<?= $max_page; ?><?= !empty($get_url) ? "?" . $get_url : "" ?>">>></a>
         </div>
-        
-        
-
     </body>
 </html>

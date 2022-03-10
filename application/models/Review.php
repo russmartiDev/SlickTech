@@ -4,7 +4,7 @@ class Review extends CI_Model
     function get_all_review($id)
     {   
         $review = array();
-        $comment = $this->db->query("SELECT comments.id  AS id, comments.created_at AS date, comments.content, CONCAT(users.first_name, ' ', users.last_name) AS name FROM comments LEFT JOIN users ON users.id = comments.user_id WHERE comments.product_id = ?", array($id))->result_array();
+        $comment = $this->db->query("SELECT comments.id  AS id, comments.created_at AS date, comments.content, CONCAT(users.first_name, ' ', users.last_name) AS name FROM comments LEFT JOIN users ON users.id = comments.user_id WHERE comments.product_id = ? ORDER BY date DESC", array($id))->result_array();
         foreach($comment as $comment_row)
         {
             $replies = $this->db->query("SELECT CONCAT(users.first_name, ' ', users.last_name) AS name, replies.content, replies.created_at AS date FROM replies LEFT JOIN users ON users.id = replies.user_id WHERE  replies.comment_id =?", array($comment_row["id"]))->result_array();
@@ -14,6 +14,11 @@ class Review extends CI_Model
         return $review;
     }
 
+    function get_reply($id)
+    {
+        $query ="SELECT CONCAT(users.first_name, ' ', users.last_name) AS name, replies.content, replies.created_at AS date FROM replies LEFT JOIN users ON users.id = replies.user_id WHERE  replies.comment_id =?";
+        return $this->db->query( $query , array($id))->result_array();
+    }
     
     function add_comment($comment)
     {

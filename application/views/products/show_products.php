@@ -3,7 +3,7 @@
 ?>
         <!-- main style -->
         <link rel="stylesheet/less" type="text/css" href="<?= base_url("Assets/style/show_products.less")?>">
-		<script src="<?= base_url("Assets/script/cart.js")?>"></script>
+		<script src="<?= base_url("Assets/script/show_products.js")?>"></script>
         <!-- less library -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
         <title>All products</title>
@@ -166,7 +166,7 @@
 		if(!empty($this->session->userdata("user_id")))
 		{
 ?>		
-			<form action="/products/add_comment" method="POST">
+			<form action="/reviews/add_comment" method="POST" class="add_comment">
 				<h2>Leave a review</h2>
 				<input type="hidden" name="product_id" value="<?= $product["id"] ?>" />
 				<input type="hidden" name="user_id" value="<?= $this->session->userdata("user_id"); ?>" />
@@ -176,53 +176,11 @@
 <?php
     	}
 ?>
+			<div id="review_list">
+
+			</div>
             <!------------------------Review List--------------------------->
-			<ul>
-<?php
-			// Review
-			foreach($review as $review)
-			{
-?>
-				<li class="comment">
-					<h3 class="d-inline-block"><?= $review["comment"]["name"]; ?></h3>
-					<p class="d-inline-block text-secondary ms-4 mb-0">(<?= $review["comment"]["date"]; ?>)</p>
-					<p><?= $review["comment"]["content"]; ?></p>
-                    <!------------------------Reply List--------------------------->
-					<ul>
-<?php
-					// Repy
-					foreach($review["replies"] as $reply)
-					{
-?>
-						<li class="mt-4">
-							<h4 class="d-inline-block"><i class="fas fa-level-up-alt fa-rotate-90 me-2 text-info"></i><?= $reply["name"]; ?></h4>
-							<p class="d-inline-block text-secondary ms-4 mb-0">(<?= $reply["date"]; ?>)</p>
-							<p class="ms-4"><?= $reply["content"]; ?></p>
-						</li>
-<?php
-    				}
-?>
-					</ul>
-                    <!------------------------add a reply--------------------------->
-<?php
-				if(!empty($this->session->userdata("user_id")))
-				{
-?>		
-					<form action="/products/add_reply" method="post">
-						<input type="hidden" name="comment_id" value="<?= $review["comment"]["id"]; ?>" />
-						<input type="hidden" name="product_id" value="<?= $product["id"]; ?>" />
-						<input type="hidden" name="user_id" value="<?= $this->session->userdata("user_id"); ?>" />
-						<textarea placeholder="Write a reply" name="content" class="form-control mb-4" rows="3"></textarea>
-						<input type="submit" class="btn-lg btn-outline-primary mt-2 d-block me-0 ms-auto" value="reply" />
-					</form>
-<?php
-    			}
-?>
-				</li>
-<?php
-    		}
-?>
-			</ul>
+
 		</div>
 	</body>
 </html>
