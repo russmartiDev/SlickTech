@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- nav style -->
     <link rel="stylesheet/less" type="text/css" href="<?= base_url("Assets/style/navigation.less")?>">
+    <script src="<?= base_url("Assets/script/navigation.js")?>"></script>
     <!-- fortorama library -->
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>

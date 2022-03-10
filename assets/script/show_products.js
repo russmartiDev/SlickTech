@@ -10,6 +10,9 @@ $(document).ready(function () {
                 position : "top center",
                 autoHideDelay: 2000,
             });
+			$.get('/Carts/count_cart', function(res) {
+				$(".cart-count").html(res);
+			});
           });
 
         return false;

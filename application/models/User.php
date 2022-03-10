@@ -12,6 +12,12 @@ class User extends CI_Model {
         return $this->db->query($query, $values);
     }
 
+    function get_default_shipping($id)
+    {
+        $query = "SELECT shipping_info FROM users WHERE id = ?";
+        return $this->db->query($query, array($id))->row_array();
+    }
+
     function login($user)
     {
         return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?", array($user['username'], $user['password']))->row_array();

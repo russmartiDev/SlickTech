@@ -52,34 +52,8 @@ class Products extends CI_Controller {
             $product = $this->product->get_product_by_id($id);
             $data["similar"] = $this->product->similar_products($product["category_id"]);
             $data["product"] = $product;
-            $data["review"] = $this->review->get_all_review($id);
             $this->load->view("products/show_products", $data);
         }
 
-        public function add_comment()
-        {
-
-            $validation =  $this->review->comment_validation();
-
-            if($validation)
-            {
-                $this->review->add_comment($this->input->post(NULL, TRUE));
-            }
-
-            redirect("/products/show/" . $this->input->post("product_id", TRUE));
-        }
-
-        public function add_reply()
-        {
-          
-            $validation =  $this->review->reply_validation();
-
-            if($validation)
-            {
-                $this->review->add_reply($this->input->post(NULL, TRUE));
-            }
-
-            redirect("/products/show/" . $this->input->post("product_id", TRUE));
-        }
         
 }

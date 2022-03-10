@@ -6,11 +6,6 @@ class Reviews extends CI_Controller {
             parent::__construct();
             $this->load->model("review");
         }
-        
-        public function show_reviews()
-        {
-
-        }
 
         public function add_comment()
         {

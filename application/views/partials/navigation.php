@@ -45,7 +45,7 @@
         </div>
         
         <div class="col-auto col-lg-1 mt-1 text-center">
-            <a href="/carts" class="text-light w-100 cart"><i class="fas fa-shopping-cart"></i><div class="cart-count ">12</div></a>
+            <a href="/carts" class="text-light w-100 cart"><i class="fas fa-shopping-cart"></i><div class="cart-count"></div></a>
         </div>
 <?php 
         }

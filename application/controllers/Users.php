@@ -36,7 +36,7 @@ class Users extends CI_Controller {
             {
                 $this->session->set_userdata("user_id", $user["id"]);
                 $this->session->set_userdata("user_name", $user["first_name"] . " " . $user["last_name"]);
-                redirect("products/all_products");
+                redirect("/products");
             }
             else
             {
@@ -70,5 +70,12 @@ class Users extends CI_Controller {
                 $contacts = $this->User->add_user($values);
                 redirect("users/login");
             }
+        }
+
+        public function get_default_shipping()
+        {
+            $this->load->model("User");
+            echo $this->User->get_default_shipping($this->session->userdata("user_id"))["shipping_info"];
+            
         }
 }
