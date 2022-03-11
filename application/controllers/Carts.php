@@ -92,7 +92,7 @@ class Carts extends CI_Controller {
             }
             else
             {
-                echo "Failed";
+                redirect('/carts', 'refresh');
             }
     
         }

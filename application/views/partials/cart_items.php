@@ -15,4 +15,4 @@
 <?php
     }
 ?>
-<input type="hidden" value="$<?= $total_price; ?>" id="total_price">
+<input type="hidden" value="$<?= $total_price; ?>" id="total_price" name="total_price">

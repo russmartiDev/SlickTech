@@ -7,7 +7,7 @@
         <!-- less library -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-        <title>All products</title>
+        <title>Cart</title>
     </head>
     <body>
 <?php
@@ -127,19 +127,19 @@
 
                         <div class="row">
                             <p class="col-4">Card: </p>
-                            <input class="col-8" type="number">
+                            <input class="col-8" type="number" id="card_number">
                         </div>
                         
                         <div class="row">
                             <p class="col-4">Security code: </p>
-                            <input class="col-8" type="number">
+                            <input class="col-8" type="number" id="card_code">
                         </div>
 
                         <div class="row">
                             <p class="col-4">Expiration: </p>
-                            <input class="col-3" type="number">
+                            <input class="col-3" type="number" id="card_month" placeholder="MM">
                             <p class="col-2 text-center">/</p>
-                            <input class="col-3" type="number">
+                            <input class="col-3" type="number" id="card_year" placeholder="YYYY">
                         </div>
                     </div>
 

@@ -6,7 +6,7 @@
 		<script src="<?= base_url("Assets/script/show_products.js")?>"></script>
         <!-- less library -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
-        <title>All products</title>
+        <title>Show</title>
     </head>
     <body>
 <?php

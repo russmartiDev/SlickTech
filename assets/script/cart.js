@@ -60,16 +60,18 @@ $(document).ready(function () {
     });
 
     $stripeForm = $("form#add_order");
-    $('form#add_order').bind('submit', function (e) {
+    $('form#add_order').bind('submit', function (e)
+    {
         $(this).find("input[type=text]").prop('disabled', false);
-        if (!$stripeForm.data('cc-on-file')) {
+        if (!$stripeForm.data('cc-on-file'))
+        {
             e.preventDefault();
             Stripe.setPublishableKey($stripeForm.data('stripe-publishable-key'));
             Stripe.createToken({
-                number: "4242424242424242",
-                cvc: "321",
-                exp_month: "01",
-                exp_year: "2025"
+                number: $("#card_number").val(),
+                cvc: $("#card_code").val(),
+                exp_month: $("#card_month").val(),
+                exp_year: $("#card_year").val()
             }, stripeResponseHandler);
         }
 
@@ -79,7 +81,9 @@ $(document).ready(function () {
     function stripeResponseHandler(status, res) {
         if (res.error) {
             console.log("error");
-        } else {
+        }
+        else
+        {
             var token = res['id'];
             console.log(token);
             $stripeForm.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");

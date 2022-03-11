@@ -11,13 +11,14 @@ class Cart extends CI_Model {
 
     public function get_all_cart()
     {
-        $query = "SELECT carts.product_id as id, products.name, products.price, SUM(carts.quantity) as quantity FROM slick_tech_db.carts LEFT JOIN products ON carts.product_id = products.id WHERE user_id = 4 GROUP BY carts.product_id";
-        return $this->db->query($query)->result_array();
+        $query = "SELECT carts.product_id as id, products.name, products.price, SUM(carts.quantity) as quantity FROM slick_tech_db.carts LEFT JOIN products ON carts.product_id = products.id WHERE user_id = ? GROUP BY carts.product_id";
+
+        return $this->db->query($query, array($this->session->userdata("user_id")))->result_array();
     }
 
     public function insert_order($user_id, $order_infos, $order_items)
     {
-        $query ="INSERT INTO `orders` ( `user_id`, `order_infos`, `order_items`, `created_at`, `updated_at`) VALUES ( ?, ?, ?, NOW(), NOW())";
+        $query ="INSERT INTO `orders` ( `user_id`, `order_info`, `order_item`, `created_at`, `updated_at`) VALUES ( ?, ?, ?, NOW(), NOW())";
         $values = array($user_id, $order_infos, $order_items);
 
         return $this->db->query($query, $values);
