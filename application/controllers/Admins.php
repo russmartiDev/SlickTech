@@ -58,18 +58,102 @@ class Admins extends CI_Controller {
             $this->load->view("partials/order_item_list", $data);
         }
 
-        public function product_list()
-        {
-            $this->load->view("admins/admin_products");
-        }
-
         public function update_status()
         {
             $orders = $this->Admin->update_order_status();
         }
 
-        public function view_order()
+        public function view_order($id)
         {
-            $this->load->view("admins/order_view");
+            $orders = $this->Admin->view_order($id);
+     
+            if ($orders["status"] == 1)
+            {
+                $status = "Order in process";
+            }
+            else if ($orders["status"] == 2)
+            {
+                $status = "Shipped";
+            }
+            else
+            {
+                $status = "Cancelled";
+            }
+  
+            
+            $this->load->view("admins/order_view", array("orders" => $orders, "status" => $status));
         }
+
+        public function product_list_partial($page = 1)
+        {
+            $data["products"] = $this->Admin->all_products(($page -1) * 10);
+            $data["count"] = $this->Admin->count_all_products()[0]["count"] / 10;
+            $this->load->view("partials/admin_product_list", $data);
+        }
+
+        public function product_list()
+        {
+            $categories = $this->Admin->get_all_categories();
+            $this->load->view("admins/admin_products");
+        }
+
+        public function delete_product($id)
+        {
+            $this->Admin->delete_product($id);
+            $this->product_list();
+        }
+
+        public function add_category()
+        {
+            if(!empty($this->input->post("category_add", true)))
+            {
+                $this->Admin->add_category();
+            }
+
+            $data["categories"] = $this->Admin->get_all_categories();
+            $this->load->view("partials/category_list", $data);
+        }
+
+        public function edit_category()
+        {
+            if(!empty($this->input->post("category_name", true)))
+            {
+                $this->Admin->edit_category();
+            }
+
+            $data["categories"] = $this->Admin->get_all_categories();
+            $this->load->view("partials/category_list", $data);
+        }
+
+        public function delete_category()
+        {
+
+            $this->Admin->delete_category();
+
+            $data["categories"] = $this->Admin->get_all_categories();
+            $this->load->view("partials/category_list", $data);
+        }
+
+        public function add_new_product()
+        {
+           $this->Admin->add_product();
+           $this->product_list_partial();
+        }
+
+        public function edit_product()
+        {
+            $product = $this->Admin->get_product_by_id();
+
+            echo json_encode($product);
+        }
+
+        public function update_product()
+        {
+            $this->Admin->update_product();
+            $this->product_list_partial();
+        }
+
+
+
+
 }

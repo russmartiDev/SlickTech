@@ -18,6 +18,12 @@ body {
             margin: 0 1em;
             text-decoration: none;
         }
+        .button-page{
+            margin: 0 1em;
+            color: blue;
+            background-color: transparent;
+            border: 0;
+        }
     }
     
     button {
@@ -42,6 +48,22 @@ body {
         content: "";
         display: block;
         padding-bottom: 100%;
+    }
+
+    .custom-combobox {
+        position: relative;
+        display: inline-block;
+    }
+    .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    }
+    .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
     }
     
     @media only screen and (max-width: 768px) {

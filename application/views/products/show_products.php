@@ -91,6 +91,11 @@
 			<h2>Customers who bought this item also bought</h2>
 			<div class="row gy-3">
                 <!------------------------Item List--------------------------->
+<?php
+				for($i = 0; $i < 6; $i++)
+				{
+?>
+			
 				<div class="col-6 col-sm-4 col-lg-2">
 					<div class="item-card">
 						<div class="img_container">
@@ -101,61 +106,10 @@
 						<p>Price: $1000</p>
 					</div>
 				</div>
+<?php
+				}
+?>
 
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="item-card">
-						<div class="img_container">
-							<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-						</div>
-						<a href="show_products.html" class="d-block">Keyboard</a>
-						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-						<p>Price: $1000</p>
-					</div>
-				</div>
 			</div>
 		</div>
         <!------------------------Reviewt--------------------------->

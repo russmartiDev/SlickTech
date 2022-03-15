@@ -3,9 +3,12 @@
 ?>
         <!-- main style -->
         <link rel="stylesheet/less" type="text/css" href="<?= base_url("Assets/style/admin_products.less")?>">
-		<script src="<?= base_url("Assets/script/orders.js")?>"></script>
+		<script src="<?= base_url("Assets/script/admin_product_list.js")?>"></script>
         <!-- less library -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
         <title>Show</title>
     </head>
     <body>
@@ -17,10 +20,13 @@
 		<div class="mb-3 row">
 			<div class="col-6 col-md-3">
 				<!------Search-------->
-				<div class="input-group">
-					<button class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></button>
-					<input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="basic-addon1" />
-				</div>
+				<form action="/admins/product_list_partial/1" data-link="/admins/product_list_partial/" method="post" class="product_list">
+					<div class="input-group">
+						<button class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></button>
+						<input type="text" name="search" class="form-control" placeholder="search" aria-label="search" aria-describedby="basic-addon1" />
+					</div>
+				</form>
+
 			</div>
 			<div class="col-0 col-md-7 space"></div>
 			<!------Add product-------->
@@ -29,44 +35,12 @@
 			</div>
 		</div>
 		<!------Product Table-------->
-		<div class="table-container">
-			<table class="table table-light table-striped align-middle">
-				<thead>
-					<tr>
-						<th class="col-2" scope="col-1">Picture</th>
-						<th class="col-1" scope="col-1">ID</th>
-						<th class="col-4" scope="col-1">Name</th>
-						<th class="col-1" scope="col-1">Inventory Count</th>
-						<th class="col-1" scope="col-1">Qty Sold</th>
-						<th class="col-3" scope="col-1">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<div class="img_container">
-								<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-							</div>
-						</td>
-						<td>1</td>
-						<td>Keyboard</td>
-						<td>123</td>
-						<td>$143</td>
-						<td>
-							<button data-bs-toggle="modal" data-bs-target="#product"><a href="#">Edit</a></button>
-							<button data-bs-toggle="modal" data-bs-target="#delete_product"><a href="#">Delete</a></button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<!------Page-------->
-		<div class="page">
-			<a href="#"><</a><a href="#"><<</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">></a><a href="#">>></a>
+		<div class="data">
+			
 		</div>
 
 		<!-- ------------------------------------------Delete modal------------------------------------------------------------- -->
-		<form action="/products/delete_product" method="post">
+		<form action="/admins/delete_product/" data-link="/admins/delete_product/" method="post" class="del_form">
 			<div class="modal fade" id="delete_product" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
@@ -81,96 +55,16 @@
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-							<input type="submit" class="btn btn-danger" value="delete" />
+							<input type="submit" class="btn btn-danger" data-bs-dismiss="modal" value="delete" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 
-		<!-- ------------------------------------------Update/add modal------------------------------------------------------------- -->
-		<form action="/products/edit_product" method="post">
-			<div class="modal fade" id="product" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">Edit product</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<!------Upadte/add input field-------->
-							<input type="hidden" name="id" value="1" />
-							<div class="mb-1">
-								<label for="name" class="form-label">Product Name</label>
-								<input type="text" required class="form-control" id="name" name="name" value="product name" />
-							</div>
-
-							<div class="mb-2">
-								<label for="Description" class="form-label">Description</label>
-								<textarea class="form-control" required id="Description" name="description" rows="3">111</textarea>
-							</div>
-
-							<div class="row">
-								<div class="mb-1 col-6">
-									<label for="stocks" class="form-label">Inventory</label>
-									<input type="number" required class="form-control" id="stocks" name="stocks" value="10" />
-								</div>
-
-								<div class="mb-1 col-6">
-									<label for="price" class="form-label">Price</label>
-									<input type="number" required class="form-control" id="price" name="price" value="10" />
-								</div>
-								<!------Category Dropdown-------->
-								<div class="mb-1 col-12 dropdown">
-									<button class="btn btn-success dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Category</button>
-									<ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1">
-										<li class="position-relative">
-											<a class="dropdown-item" href="#"><input class="w-75" type="text" /></a> <i class="fas fa-pen position-absolute" style="right: 40px; top: 5px"></i><i class="fas fa-trash position-absolute" style="right: 10px; top: 5px"></i>
-										</li>
-										<li class="position-relative">
-											<a class="dropdown-item" href="#"><input class="w-75" type="text" /></a> <i class="fas fa-pen position-absolute" style="right: 40px; top: 5px"></i><i class="fas fa-trash position-absolute" style="right: 10px; top: 5px"></i>
-										</li>
-										<li class="position-relative">
-											<a class="dropdown-item" href="#"><input class="w-75" type="text" /></a> <i class="fas fa-pen position-absolute" style="right: 40px; top: 5px"></i><i class="fas fa-trash position-absolute" style="right: 10px; top: 5px"></i>
-										</li>
-									</ul>
-								</div>
-
-								<div class="mb-1 col-12">
-									<label for="add_new_categ" class="form-label">Add new category</label>
-									<input type="number" required class="form-control" id="add_new_categ" name="add_new_categ" value="10" />
-								</div>
-								<!------Images-------->
-								<div class="mb-4 col-12">
-									<label for="add_new_categ" class="form-label">images</label>
-									<input type="button" value="upload Image" class="btn btn-success" />
-								</div>
-	
-								<div class="row align-items-center">
-									<i class="fas fa-bars col-1"></i>
-									<div class="col-4">
-										<div class="img_container">
-											<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="mouse" />
-										</div>
-									</div>
-									<p class="col-3">img.png</p>
-									<i class="fas fa-trash col-1"></i>
-									<input class="col-1" type="checkbox" />
-									<p class="col-1 m-0 p-0">main</p>
-								</div>
-								
-							</div>
-						</div>
-						
-						<div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-							<input type="button" class="btn btn-success" value="preview" />
-							<input type="submit" class="btn btn-primary" value="update" />
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</form>
+<?php
+		$this->load->view("partials/update_product");
+		$this->load->view("partials/edit_product");
+?>
 	</body>
 </html>

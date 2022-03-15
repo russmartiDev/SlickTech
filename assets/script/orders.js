@@ -11,6 +11,8 @@ $(document).ready(function () {
 	});
     
     $(document).on('change', 'form.orders select', function(){
+	
+		console.log($(this).val());
         $(this).parent().parent().submit();
 	});
 
@@ -30,7 +32,9 @@ $(document).ready(function () {
 	$(document).on('change', 'select[name=status_update]', function(){
 		$(this).parent("form").submit();
 	});
-
+	$(document).on('change', 'select[name=filter]', function(){
+		$(this).parent("form").submit();
+	});
     $(document).on('keyup', 'form.orders .search', function(){
         $(this).parent().parent().submit();
 	});
