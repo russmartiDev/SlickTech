@@ -5,6 +5,7 @@ A responsive Tech E-commerce website built within a 1 week time frame
 <p>HTLM</p>
 <p>Less</p>
 <p>Javascript</p>
+<p>PHP</p>
 <p>Jquery</p>
 <p>Ajax</p>
 <p>Codeigniter</p>
