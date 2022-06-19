@@ -1,6 +1,24 @@
-# SlickTech
-a tech e-commerce website built with codeigniter 3
+# About The Project
+A responsive Tech E-commerce website built within a 1 week time frame 
 
-Clickable prototype should be loaded in server
+# Built With
+<p>HTLM</p>
+<p>Less</p>
+<p>Javascript</p>
+<p>Jquery</p>
+<p>Ajax</p>
+<p>Codeigniter</p>
+<p>Mysql</p>
+<p>bootstrap</p>
+<p>Stripe</p>
 
-ERD: https://drive.google.com/file/d/1CBvk429sJ2dJzRXz_t0QYvwRqBvuaSY_/view?usp=sharing
+# Demo
+<a href="https://www.youtube.com/watch?v=5sU3huV3Ixc">Video Demo</a>
+
+# ERD
+<img src="assets/img/ERD.png">
+
+# Notes
+<p>Clickable prototype should be loaded in server</p>
+
+
